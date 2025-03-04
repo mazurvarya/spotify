@@ -9,6 +9,7 @@ import IconRandom from "@/assets/icons/MusicPlayer/iconRandom";
 import IconRepeat from "@/assets/icons/MusicPlayer/iconRepeat";
 import IconVolume from "@/assets/icons/MusicPlayer/iconVolume";
 import { ButtonIcon } from "@/components/shared/UI/Buttons/buttons";
+import Player from "@/components/widjets/player/player";
 
 export default function UiKit() {
     return (
@@ -33,6 +34,7 @@ export default function UiKit() {
             <IconRepeat />
             <IconVolume />
             <ButtonIcon icon={<IconPlay />} />
+            <Player />
         </div>
     )
 }
