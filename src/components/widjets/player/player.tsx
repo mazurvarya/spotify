@@ -12,11 +12,12 @@ import IconFullScreen from "@/assets/icons/MusicPlayer/iconFullScreen"
 import IconHeart from "@/assets/icons/MusicPlayer/iconHeart"
 
 import preview from "@assets/icons/other/images/previewPlayer.png"
-import { MouseEvent, useEffect, useRef, useState } from "react"
+import { ChangeEvent, MouseEvent, useEffect, useRef, useState } from "react"
 import axios from "axios"
 import { log } from "console"
 import { formatTime } from "@/components/shared/utils/formatTime"
 import IconPause from "@/assets/icons/MusicPlayer/iconPause"
+import IconMute from "@/assets/icons/MusicPlayer/iconMute"
 
 interface IMusicData{
     id: number,
@@ -38,6 +39,9 @@ export default function Player(){
     const [progress, setProgress] = useState(0)
     const [duration, setDuration] = useState(0)
     const [currentTime, setCurrentTime] = useState(0)
+
+    const [volume, setVolume] = useState(1)
+    const [isMute, setIsMute] = useState(false)
 
     const musicRef = useRef<HTMLAudioElement>(null)
 
@@ -114,6 +118,21 @@ export default function Player(){
             }
         }
 
+        const handleVolumeChange = (event:ChangeEvent<HTMLInputElement>) => {
+            const audio = musicRef.current
+            if (!audio || !event.currentTarget) return
+                audio.volume = Number(event.currentTarget.value)
+        }
+
+        const HandleChangeMute = () => {
+            const audio = musicRef.current;
+            if (!audio) return;
+
+            setIsMute((PrevState) => !PrevState);
+            audio.muted = !audio.muted;
+
+        }
+
     return <div className={s.player_wrapper}>
         {isPreviewOpen && (
         <div className={s.preview_wrapper}>
@@ -150,7 +169,12 @@ export default function Player(){
         </section>
         <section className={s.right}>
             <ButtonIcon icon={<IconQueue />} />
-            <ButtonIcon icon={<IconVolume />} />
+            
+
+            <div className={s.volume_wrapper}>
+            <ButtonIcon handleClick={HandleChangeMute} icon={isMute ? <IconMute/> : <IconVolume />} />
+            <input className={s.volume} onInput={handleVolumeChange} type="range" min={0} max={1} step={0.1}></input>
+    </div>
             <ButtonIcon icon={<IconFullScreen />} />
         </section>
         <audio ref={musicRef} src={musicData?.url}></audio>
