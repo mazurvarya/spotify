@@ -10,6 +10,8 @@ import IconRepeat from "@/assets/icons/MusicPlayer/iconRepeat";
 import IconVolume from "@/assets/icons/MusicPlayer/iconVolume";
 import { ButtonIcon } from "@/components/shared/UI/Buttons/buttons";
 import Player from "@/components/widjets/player/player";
+import PlayList from "@/components/widjets/playlist/playList.tsx";
+import PlayListItem from "@/components/widjets/playlist/PlayListItem/playListItem.tsx";
 
 export default function UiKit() {
     return (
@@ -35,6 +37,8 @@ export default function UiKit() {
             <IconVolume />
             <ButtonIcon icon={<IconPlay />} />
             <Player />
+            <PlayList />
+            <PlayListItem />
         </div>
     )
 }
