@@ -3,6 +3,8 @@ import UiKit from "./pages/uiKit";
 import "./themes/normalize.css";
 import "./themes/variables.css"
 import Main from "@/pages/Main/index.tsx";
+import { SinglePlayListPage } from "@/pages/SinglePlayListPage";
+
 
 function App() {
 
@@ -10,6 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main/>} />
+        <Route path="/playlist/:playlistId" element={<SinglePlayListPage/>} />
         <Route path="/ui" element={<UiKit/>} />
       </Routes>
     </BrowserRouter>

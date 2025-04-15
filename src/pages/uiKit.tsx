@@ -38,7 +38,6 @@ export default function UiKit() {
             <ButtonIcon icon={<IconPlay />} />
             <Player />
             <PlayList />
-            <PlayListItem />
         </div>
     )
 }
