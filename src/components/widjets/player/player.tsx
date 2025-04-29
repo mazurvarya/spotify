@@ -20,11 +20,12 @@ import IconPause from "@/assets/icons/MusicPlayer/iconPause"
 import IconMute from "@/assets/icons/MusicPlayer/iconMute"
 import { IMusicData } from "@/Interfaces/interfaces"
 import PLayerStore from "@/stores/PLayerStore"
+import { observer } from "mobx-react-lite"
 
 
 
 
-export default function Player(){
+ function Player(){
 
     const {currentMusic: musicData} = PLayerStore
 
@@ -175,3 +176,4 @@ export default function Player(){
         <audio ref={musicRef} src={musicData?.url}></audio>
     </div>
 }
+export default observer (Player)

@@ -6,7 +6,7 @@ npm i
 npm run dev
 
 другие
-git config user.name "mazurvarya" 
+git config user.name "mazurvarya"
 git config user.email "mazurova.varya87@mail.ru"
 
 команды для гита

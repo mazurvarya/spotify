@@ -50,4 +50,4 @@ const PlayListItem = ({item, index}:PlayListItemProps) => {
         )
     }
 
-export default observer(Player)
+export default observer(PlayListItem)
