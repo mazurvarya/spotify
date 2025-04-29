@@ -1,11 +1,12 @@
 import s from "./style.module.css"
 import PlayListItem from "@/components/widjets/playlist/PlayListItem/playListItem.tsx"
+import { IMusicData } from "@/Interfaces/interfaces"
 import clock from "@assets/icons/other/images/clock.svg"
 
 import { Fragment } from "react"
 
 interface PlayListProps {
-    musicList: any[]
+    musicList: IMusicData[]
 }
 
 const PlayList = ({ musicList }: PlayListProps) => {

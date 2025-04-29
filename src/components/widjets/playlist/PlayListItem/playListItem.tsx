@@ -2,31 +2,29 @@ import s from "./style.module.css"
 import { ButtonIcon } from "@/components/shared/UI/Buttons/buttons.tsx"
 import IconHeart from "@/assets/icons/MusicPlayer/iconHeart.tsx"
 import IconPlay from "@/assets/icons/MusicPlayer/iconPlay.tsx"
+import { IMusicData } from "@/Interfaces/interfaces"
+import PLayerStore from "@/stores/PLayerStore"
+import { observer } from "mobx-react-lite"
+import Player from "../../player/player"
 
-type IPlayListItem = {
-    id: number,
-    title: string,
-    artist: string,
-    album: string
-    year: number,
-    genres: string[],
-    duration: string,
-    image: string,
-    url: string
-}
 
 interface PlayListItemProps {
-item: IPlayListItem
+item: IMusicData;
 index: number;
 }
 
 const PlayListItem = ({item, index}:PlayListItemProps) => {
+
+    const handlePlay = () => {
+        PLayerStore.fetchMusicById(item.id)
+    }
         return (
             <tr className={s.wrapper}>
                 <td>
                     <div className={s.number_wrapper}>
                         <p className={s.number}>{index}</p>
-                        <ButtonIcon icon={<IconPlay/>}/>
+
+                        <ButtonIcon handleClick={handlePlay} icon={<IconPlay/>}/>
                     </div>
                 </td>
                 <td>
@@ -52,4 +50,4 @@ const PlayListItem = ({item, index}:PlayListItemProps) => {
         )
     }
 
-export default PlayListItem
+export default observer(Player)

@@ -7,7 +7,7 @@
         "year": 2013,
         "genres": ["Indie-rock"],
         "duration": "3.59",
-        "image": "./api/music/previewPlayer.png",
-        "url": "./api/music/arctic-monkeys-do-i-wanna-know.mp3"
+        "image": "/api/music/previewPlayer.png",
+        "url": "/api/music/arctic-monkeys-do-i-wanna-know.mp3"
     }
 ]

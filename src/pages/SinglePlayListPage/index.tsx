@@ -2,6 +2,7 @@ import PlayList from "@/components/widjets/playlist/playList";
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import s from "./style.module.css"
 
 const SinglePlayListPage = () => {
     const [musicList, setMusicList] = useState([])
@@ -25,12 +26,16 @@ const SinglePlayListPage = () => {
     useEffect(() =>{
         getMusicList()
     }, [])
-
     return (
-        <main>
-            <h1>Single PlayList</h1>
-
-            <PlayList musicList={musicList} />
+        <main className={s.page_wrapper}>
+            <div className={s.sidebar}>sidebar left</div>
+            <div className={s.playlist_wrapper}>
+                <div className={s.top}></div>
+                <div className={s.main}>
+                    <PlayList musicList={musicList} />
+                </div>
+            </div>
+            <div className={s.sidebar}>sidebar right</div>
         </main>
     )
 }

@@ -18,24 +18,19 @@ import { log } from "console"
 import { formatTime } from "@/components/shared/utils/formatTime"
 import IconPause from "@/assets/icons/MusicPlayer/iconPause"
 import IconMute from "@/assets/icons/MusicPlayer/iconMute"
+import { IMusicData } from "@/Interfaces/interfaces"
+import PLayerStore from "@/stores/PLayerStore"
 
-interface IMusicData{
-    id: number,
-    title: string,
-    artist: string,
-    album: string,
-    duration: number,
-    genres: string[],
-    image: string,
-    url: string
-}
+
 
 
 export default function Player(){
 
+    const {currentMusic: musicData} = PLayerStore
+
     const[isPreviewOpen, setIsPreviewOpen] = useState(false)
 
-    const [musicData, setMusicData] = useState<IMusicData | null>(null)
+    // const [musicData, setMusicData] = useState<IMusicData | null>(null)
     const [progress, setProgress] = useState(0)
     const [duration, setDuration] = useState(0)
     const [currentTime, setCurrentTime] = useState(0)
@@ -49,20 +44,20 @@ export default function Player(){
 
 
 
-    const getMusicData = async () => {
-        axios.get("./api/music_api.json")
-        .then((response) =>{
-            console.log(response.data);
-            setMusicData(response.data[0])
-        })
-        .catch((error) => {
-            console.error("ошибка получения", error);
-        })
-        .finally(() => {
-            console.log("сработает в любом случае");
+    // const getMusicData = async () => {
+    //     axios.get("./api/music_api.json")
+    //     .then((response) =>{
+    //         console.log(response.data);
+    //         setMusicData(response.data[0])
+    //     })
+    //     .catch((error) => {
+    //         console.error("ошибка получения", error);
+    //     })
+    //     .finally(() => {
+    //         console.log("сработает в любом случае");
             
-        })
-    }
+    //     })
+    // }
 
     const handlePlay = () =>{
         if (!musicRef.current) return;
@@ -81,9 +76,9 @@ export default function Player(){
 
 
 
-    useEffect(() => {
-        getMusicData()
-    }, [])
+    // useEffect(() => {
+    //     getMusicData()
+    // }, [])
 
     useEffect(() => {
         const audio = musicRef.current
