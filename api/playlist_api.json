@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "title": "My playlist",
+        "authors": "Jonh Doe",
+        "img": "/api/music/previewPlayer.png"
+    },
+    {
+        "id": 2,
+        "title": "Playlist",
+        "authors": "Jonh Doe",
+        "img": "/api/music/previewPlayer.png"
+    }
+]
