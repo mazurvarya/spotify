@@ -1,0 +1,9 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td,
+    p {
+        text-align: left;
+    }
+}

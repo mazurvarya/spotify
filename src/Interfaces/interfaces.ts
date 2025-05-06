@@ -6,7 +6,13 @@ export interface IMusicData{
     year: number,
     genres: string[],
     duration: string,
-    image: string,
+    img: string,
     url: string
 }
+
+export interface IPlayList {
+    id: number,
+    title: string,
+    authorList: string,
+    img: string
 }
