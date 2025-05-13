@@ -4,6 +4,7 @@ import "./themes/normalize.css";
 import "./themes/variables.css"
 import Main from "@/pages/Main/index.tsx";
 import { SinglePlayListPage } from "@/pages/SinglePlayListPage";
+import LoginPage from "./pages/Login/login";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main/>} />
+        <Route path="/login" element={<LoginPage/>} />
         <Route path="/playlist/:playlistId" element={<SinglePlayListPage/>} />
         <Route path="/ui" element={<UiKit/>} />
       </Routes>
